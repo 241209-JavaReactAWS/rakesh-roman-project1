@@ -1,1 +1,9 @@
 Character Customizer 
+
+Back End 
+- User 
+- Admin 
+
+Front End
+- Mockups (HTML and CSS)
+- React 
