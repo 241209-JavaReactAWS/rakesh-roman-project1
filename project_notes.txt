@@ -7,11 +7,37 @@ Back End
     - Can view characters they made, and search for other characters 
     - Can delete characters they made
     - Can only see public characters 
+    - Search for other users 
 - Admin 
     - Same privileges as User 
     - Can see all characters (public and private) 
     - Can remove users 
     - Can check ban requests and approve / reject them 
+- Stretch Goals 
+    - Specific search parameters for other characters 
+    - Dark mode / Light mode 
+    - Create custom theme (text color, background color, etc.) 
+    - Upload an image 
+    - Ban Appeals, where admin can see ban appeals, and choose to accept or reject them 
+- OBJECTS 
+    - Character 
+        - id (int) (primary key)
+        - Name (varchar)
+        - Age (int)
+        - Description (varchar)
+        - Setting (varchar) (maybe hold off until later)
+        - Creator (varchar) (foreign key)
+        - Public (boolean)
+    - User 
+        - id (primary key) 
+        - username (varchar) 
+        - password (varchar) 
+        - banned (boolean) 
+    - Admin 
+        - id (primary key) 
+        - username (varchar) 
+        - password (varchar) 
+        - TDB 
 
 Front End 
 - Mockups (HTML and CSS) 
@@ -19,7 +45,9 @@ Front End
         - Darkslate gray background 
         - Cornsilk text 
     - Menu 
-        - User View (Unbanned)
+        - Log-In Screen 
+            - 
+        - User View (Unbanned) 
             - Home Screen 
                 - Where user goes to when newly opening up the webpage 
             - "Create a Character" 
@@ -27,8 +55,9 @@ Front End
             - "Your Characters" 
                 - Where user and admin can view their character 
                 - Where user and admin can delete their character 
-            - "Character Search"
-                - Where user and admin can search for public (and private for Admin) characters made by others
+            - "Character Search" 
+                - Where user and admin can search for public (and private for Admin) characters made by others 
+            - "User Search" 
         - User View (Banned) 
             - "You're Currently Banned" 
                 - Where user can submit ban appeal to try and get unbanned 
@@ -37,7 +66,5 @@ Front End
             - "User Search" 
                 - Where admin can view users 
                 - Where admin can ban users 
-            - "Ban Appeals" 
-                - Where admin can see ban appeals, and choose to accept or reject them 
 - React 
     - TBD 
