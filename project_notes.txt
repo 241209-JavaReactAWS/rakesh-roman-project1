@@ -3,7 +3,10 @@ Character Customizer
 Back End 
 - User 
 - Admin 
+    Have a boolean for all characters (public and private), and admin can see all characters. 
+    Admin can remove users. 
+    (Stretch goal) Users can appeal to be unbanned, and admins can appeal them. 
 
-Front End
-- Mockups (HTML and CSS)
-- React 
+Front End 
+- Mockups (HTML and CSS). 
+- React. 
