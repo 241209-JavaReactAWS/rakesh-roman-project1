@@ -5,12 +5,12 @@ Back End
     - Can add characters 
     - Can edit characters they made 
     - Can view characters they made, and search for other characters 
-    - Can delete characters they made
+    - Can delete characters they made 
     - Can only see public characters 
     - Search for other users 
 - Admin 
     - Same privileges as User 
-    - Can see all characters (public and private) 
+    - Can see all characters (public, private, 18+) 
     - Can remove users 
     - Can check ban requests and approve / reject them 
 - Stretch Goals 
@@ -19,20 +19,23 @@ Back End
     - Create custom theme (text color, background color, etc.) 
     - Upload an image 
     - Ban Appeals, where admin can see ban appeals, and choose to accept or reject them 
+    - User calendar to show their birthday 
 - OBJECTS 
     - Character 
         - id (int) (primary key)
-        - Name (varchar)
-        - Age (int)
-        - Description (varchar)
-        - Setting (varchar) (maybe hold off until later)
-        - Creator (varchar) (foreign key)
-        - Public (boolean)
+        - name (varchar)
+        - age (int)
+        - description (varchar)
+        - setting (varchar) (maybe hold off until later)
+        - creator (varchar) (foreign key)
+        - public (boolean)
+        - flagFor18Plus (boolean) 
     - User 
         - id (primary key) 
         - username (varchar) 
         - password (varchar) 
         - banned (boolean) 
+        - flagFor18Plus (boolean)
     - Admin 
         - id (primary key) 
         - username (varchar) 
@@ -45,8 +48,11 @@ Front End
         - Darkslate gray background 
         - Cornsilk text 
     - Menu 
-        - Log-In Screen 
-            - 
+        - User View (Locked) 
+            - Username text field 
+            - Password text field 
+            - Button for User login 
+            - Button for Admin login 
         - User View (Unbanned) 
             - Home Screen 
                 - Where user goes to when newly opening up the webpage 
@@ -59,7 +65,7 @@ Front End
                 - Where user and admin can search for public (and private for Admin) characters made by others 
             - "User Search" 
         - User View (Banned) 
-            - "You're Currently Banned" 
+            - "You're Currently Banned!" 
                 - Where user can submit ban appeal to try and get unbanned 
         - Admin View 
             - Same as User View 
