@@ -34,10 +34,11 @@ public class Character {
     private boolean matureContent;
 
     //Constructors
+    //No args constructor
     public Character(){};
 
-    public Character(int characterId, String characterName, int characterAge, String description, int creator, boolean isPublic, boolean matureContent) {
-        this.characterId = characterId;
+    //Standard new character constructor
+    public Character(String characterName, int characterAge, String description, int creator, boolean isPublic, boolean matureContent) {
         this.characterName = characterName;
         this.characterAge = characterAge;
         this.description = description;
