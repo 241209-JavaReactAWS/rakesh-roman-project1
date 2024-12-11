@@ -2,8 +2,42 @@ Character Customizer
 
 Back End 
 - User 
+    - Can add characters 
+    - Can edit characters they made 
+    - Can view characters they made, and search for other characters 
+    - Can delete characters they made
+    - Can only see public characters 
 - Admin 
+    - Same privileges as User 
+    - Can see all characters (public and private) 
+    - Can remove users 
+    - Can check ban requests and approve / reject them 
 
-Front End
-- Mockups (HTML and CSS)
+Front End 
+- Mockups (HTML and CSS) 
+    - Looks 
+        - Darkslate gray background 
+        - Cornsilk text 
+    - Menu 
+        - User View (Unbanned)
+            - Home Screen 
+                - Where user goes to when newly opening up the webpage 
+            - "Create a Character" 
+                - Where user and admin can add character 
+            - "Your Characters" 
+                - Where user and admin can view their character 
+                - Where user and admin can delete their character 
+            - "Character Search"
+                - Where user and admin can search for public (and private for Admin) characters made by others
+        - User View (Banned) 
+            - "You're Currently Banned" 
+                - Where user can submit ban appeal to try and get unbanned 
+        - Admin View 
+            - Same as User View 
+            - "User Search" 
+                - Where admin can view users 
+                - Where admin can ban users 
+            - "Ban Appeals" 
+                - Where admin can see ban appeals, and choose to accept or reject them 
 - React 
+    - TBD 
