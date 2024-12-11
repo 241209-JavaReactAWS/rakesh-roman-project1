@@ -20,6 +20,8 @@ Back End
     - Upload an image 
     - Ban Appeals, where admin can see ban appeals, and choose to accept or reject them 
     - User calendar to show their birthday 
+    - Profile picture for Users and Admins 
+    - ChatGPT chat bot 
 - OBJECTS 
     - Character 
         - id (int) (primary key)
@@ -47,6 +49,7 @@ Front End
     - Looks 
         - Darkslate gray background 
         - Cornsilk text 
+        - 
     - Menu 
         - User View (Locked) 
             - Username text field 
@@ -56,14 +59,15 @@ Front End
         - User View (Unbanned) 
             - Home Screen 
                 - Where user goes to when newly opening up the webpage 
+                    - Profile pic on top left 
             - "Create a Character" 
                 - Where user and admin can add character 
-            - "Your Characters" 
-                - Where user and admin can view their character 
-                - Where user and admin can delete their character 
             - "Character Search" 
                 - Where user and admin can search for public (and private for Admin) characters made by others 
             - "User Search" 
+                - Where user can search for others users 
+            - "Your Profile" 
+                - When clicked on, the user will see their information 
         - User View (Banned) 
             - "You're Currently Banned!" 
                 - Where user can submit ban appeal to try and get unbanned 
