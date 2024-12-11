@@ -2,7 +2,7 @@ package com.revature.project1.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "users")
 public class User
 {
     @Id
