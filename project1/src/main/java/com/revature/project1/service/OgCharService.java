@@ -28,7 +28,7 @@ public class OgCharService
     //Read Characters
     //Todo: Make an if-else control that allows only Admins to see private characters
     //Todo: Make an if-else control that hides mature content if the user's matureContentAllowed field is false
-    public List<OgChar> findAllCharacters(User user)
+    public List<OgChar> getAllCharacters(User user)
     {
         return ogCharDAO.findAll();
     }
