@@ -2,8 +2,8 @@ package com.revature.project1.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "characters")
-public class Character {
+@Table(name = "usercharacters")
+public class OgChar {
     /*
             - id (int) (primary key)
             - name (varchar)
@@ -35,10 +35,10 @@ public class Character {
 
     //Constructors
     //No args constructor
-    public Character(){};
+    public OgChar(){};
 
     //Standard new character constructor
-    public Character(String characterName, int characterAge, String description, int creator, boolean isPublic, boolean matureContent) {
+    public OgChar(String characterName, int characterAge, String description, int creator, boolean isPublic, boolean matureContent) {
         this.characterName = characterName;
         this.characterAge = characterAge;
         this.description = description;
