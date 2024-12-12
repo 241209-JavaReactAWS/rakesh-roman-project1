@@ -23,8 +23,9 @@
 }
 
 .char {
+    border: 2px CanvasText;
     display: inline-block;
-    /* border: black dashed; */
+    border: CanvasText solid;
     font-size: 15px;
     margin-left: 10%;
     margin-bottom: 5%;
@@ -33,7 +34,6 @@
     padding-left: 1%;
     padding-right: 1%;
     /* FROM DEMOS */
-    border: 2px solid black;
     border-radius: 10px;
     /* text-align: center; */
     width: 250px;
@@ -51,7 +51,7 @@
 
 .user {
     display: inline-block;
-    /* border: black dashed; */
+    border: CanvasText solid;
     font-size: 15px;
     margin-left: 10%;
     margin-bottom: 5%;
@@ -60,7 +60,6 @@
     padding-left: 1%;
     padding-right: 1%;
     /* FROM DEMOS */
-    border: 2px solid black;
     border-radius: 10px;
     text-align: center;
     width: 200px;
@@ -76,4 +75,16 @@
     justify-content: space-evenly;
     /* margin-left: auto; */
     /* margin-right: auto; */
+}
+
+.dark_mode {
+    background-color: black;
+    color: white;
+    color-scheme: light dark;
+}
+
+.light_mode {
+    background-color: white;
+    color: black;
+    color-scheme: white;
 }
