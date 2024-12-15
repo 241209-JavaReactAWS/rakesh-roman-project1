@@ -6,6 +6,7 @@ body {
 .menu {
     background-color: black;
     overflow: hidden;
+    /* width: 100%; */
 }
 
 .menu a {
@@ -24,4 +25,13 @@ body {
 .menu a.active {
     background-color: black;
     color: lightgray;
+}
+
+.footer {
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    z-index: 10;
+    background-color: black;
+    width: 100%;
 }
