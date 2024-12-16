@@ -1,18 +1,16 @@
+.prof {
+    display: inline-block;
+}
+
 .center_img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: auto;
+    margin-top: 5%;
     width: 20%;
 }
 
 .center_char {
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    width: 75%; */
-    /* FROM DEMOS */
     width: 1000px;
     display: flex;
     flex-wrap: wrap;
@@ -23,8 +21,10 @@
 }
 
 .char {
+    border: 2px CanvasText;
     display: inline-block;
-    /* border: black dashed; */
+    border: CanvasText solid;
+    background-color: lightgray;
     font-size: 15px;
     margin-left: 10%;
     margin-bottom: 5%;
@@ -33,7 +33,6 @@
     padding-left: 1%;
     padding-right: 1%;
     /* FROM DEMOS */
-    border: 2px solid black;
     border-radius: 10px;
     /* text-align: center; */
     width: 250px;
@@ -51,7 +50,7 @@
 
 .user {
     display: inline-block;
-    /* border: black dashed; */
+    border: CanvasText solid;
     font-size: 15px;
     margin-left: 10%;
     margin-bottom: 5%;
@@ -60,11 +59,11 @@
     padding-left: 1%;
     padding-right: 1%;
     /* FROM DEMOS */
-    border: 2px solid black;
     border-radius: 10px;
     text-align: center;
     width: 200px;
     margin: 20px;
+    background-color: lightgray;
 }
 
 .left_char {
@@ -76,4 +75,16 @@
     justify-content: space-evenly;
     /* margin-left: auto; */
     /* margin-right: auto; */
+}
+
+.dark_mode {
+    background-color: black;
+    color: white;
+    color-scheme: light dark;
+}
+
+.light_mode {
+    background-color: white;
+    color: black;
+    color-scheme: white;
 }
