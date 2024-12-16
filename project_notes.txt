@@ -21,6 +21,7 @@ Back End
     - Ban Appeals, where admin can see ban appeals, and choose to accept or reject them 
     - User calendar to show their birthday 
     - Profile picture for Users and Admins 
+    - Save character drafts 
     - ChatGPT chat bot 
 - OBJECTS 
     - Character 

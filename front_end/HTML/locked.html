@@ -5,20 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
     <link rel="stylesheet" href="../CSS/overall.css">
+    <style>
+        .logInBar {
+            background-color: black; 
+            color: white; 
+            padding: 1%; 
+            position: fixed; 
+            right: 0; 
+            left: 0; 
+            top: 0; 
+            width: 100%;
+            margin-top: 0%;
+        }
+    </style>
 </head>
 <body>
-    <h1 style="background-color: black; color: white; padding: 5px;">Log In</h1>
-    <label for="usernameInput">Username: </label>
-    <input id="usernameInput" type="text" placeholder="Username">
-    <br>
-    <br>
-    <label for="passwordInput">Password: </label>
-    <input id="passwordInput" type="text" placeholder="Password">
-    <br>
-    <br>
-    <button id="logInUserButton">Log In</button>
-    <br>
-    <br>
-    <a href="./home.html" style="text-decoration: none;">Button will work, but for demo purposes, this link goes to the homepage (it will be removed later)</a></h2>
+    <div>
+        <h1 class="logInBar">Log In</h1>
+    </div>
+    <br> <br> <br> <br> <hr style="border-color: black;"> <br>
+    <div style="margin-left: 10px;">
+        <label for="usernameInput">Username: </label>
+        <input id="usernameInput" type="text" placeholder="Username">
+        <br>
+        <br>
+        <label for="passwordInput">Password: </label>
+        <input id="passwordInput" type="text" placeholder="Password">
+        <br>
+        <br>
+        <button id="logInUserButton">Log In</button>
+        <br>
+        <br>
+        <a href="./home.html" style="text-decoration: none;">Button will work, but for demo purposes, this link goes to the homepage (it will be removed later)</a></h2>
+    </div>
 </body>
 </html>
