@@ -4,7 +4,7 @@ body {
 }
 
 .menu {
-    background-color: black;
+    background-color: darkslategrey;
     overflow: hidden;
     width: 100%;
     position: absolute; right: 0; left: 0; top: 0; 
@@ -25,7 +25,7 @@ body {
 }
 
 .menu a.active {
-    background-color: black;
+    background-color: darkslategrey;
     color: lightgray;
 }
 
@@ -34,6 +34,7 @@ body {
     bottom: 0; 
     left: 0; 
     z-index: 10;
-    background-color: black;
     width: 100%;
+    background-color: darkslategrey;
+    color: darkslategray;
 }
