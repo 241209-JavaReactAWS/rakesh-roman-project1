@@ -57,6 +57,8 @@ public class UserService
     }
 
     //Delete a User
+    //Todo: Only an admin should be able to delete users that are not themselves
+    //      A user should be able to delete their own account and No One Else's
     public void removeUser(int userId){
         userDAO.deleteById(userId);
     }
