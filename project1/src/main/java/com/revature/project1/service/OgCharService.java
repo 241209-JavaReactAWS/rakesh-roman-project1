@@ -43,6 +43,7 @@ public class OgCharService
         //Set descriptive fields
         ogChar.setCharacterName(updatedCharacter.getCharacterName());
         ogChar.setCharacterAge(updatedCharacter.getCharacterAge());
+        ogChar.setCharacterSetting(updatedCharacter.getCharacterSetting());
         ogChar.setDescription(updatedCharacter.getDescription());
         //Set privacy fields
         ogChar.setMatureContent(updatedCharacter.isMatureContent());

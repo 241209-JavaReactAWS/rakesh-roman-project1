@@ -34,7 +34,7 @@ public class OgCharController
         return ogCharService.getAllCharacters();
     }
 
-    //UPDATE: Need to solve error 415 with POST before this can be implemented
+    //UPDATE
     @PatchMapping
     public ResponseEntity<OgChar> updateCharacterHandler(@RequestBody OgChar updatedChar){
         OgChar updatedOgChar = ogCharService.updateCharacter(updatedChar);
