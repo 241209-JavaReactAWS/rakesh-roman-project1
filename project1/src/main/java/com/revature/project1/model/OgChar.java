@@ -47,6 +47,17 @@ public class OgChar {
         this.matureContent = matureContent;
     }
 
+    //All Args constructor
+    public OgChar(int characterId, String characterName, int characterAge, String description, int creator, boolean isPublic, boolean matureContent) {
+        this.characterId = characterId;
+        this.characterName = characterName;
+        this.characterAge = characterAge;
+        this.description = description;
+        this.creator = creator;
+        this.isPublic = isPublic;
+        this.matureContent = matureContent;
+    }
+
     //Getters and Setters
     public int getCharacterId() {
         return characterId;
