@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService
@@ -29,31 +30,48 @@ public class UserService
         return userDAO.findAll();
     }
 
-    //Update a User
+    //Update a user's Username
     public User updateUsername(User updatedUser){
-        User thisUser = userDAO.findByUsername(updatedUser.getUsername());
-        thisUser.setUsername(updatedUser.getUsername());
-        return userDAO.save(thisUser);
+        Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());
+        if(thisUser.isPresent()) {
+            thisUser.get().setUsername(updatedUser.getUsername());
+            return userDAO.save(thisUser.get());
+        }
+        else
+            return null;
     }
     //Update a user's password
     public User updatePassword(User updatedUser){
-        User thisUser = userDAO.findByUsername(updatedUser.getUsername());
-        thisUser.setPassword(updatedUser.getPassword());
-        return userDAO.save(thisUser);
+        Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());
+        if(thisUser.isPresent()) {
+            thisUser.get().setPassword(updatedUser.getPassword());
+            return userDAO.save(thisUser.get());
+        }
+        else
+            return null;
     }
 
     //Update a user's mature content visibility
     public User setMatureContentVisibility(User updatedUser){
-        User thisUser = userDAO.findByUsername(updatedUser.getUsername());
-        thisUser.setMatureContentVisible(updatedUser.isMatureContentVisible());
-        return userDAO.save(thisUser);
+        Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());
+        if(thisUser.isPresent()) {
+            thisUser.get().setMatureContentVisible(updatedUser.isMatureContentVisible());
+            return userDAO.save(thisUser.get());
+        }
+        else
+            return null;
     }
 
+    //todo: add a check to ensure only an admin can ban users
     //Ban or Unban a User
     public User moderateUser(User updatedUser){
-        User targetUser = userDAO.findByUsername(updatedUser.getUsername());
-        targetUser.setBanned(updatedUser.isBanned());
-        return  userDAO.save(targetUser);
+        Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());
+        if(thisUser.isPresent()) {
+            thisUser.get().setBanned(updatedUser.isBanned());
+            return userDAO.save(thisUser.get());
+        }
+        else
+            return null;
     }
 
     //Delete a User

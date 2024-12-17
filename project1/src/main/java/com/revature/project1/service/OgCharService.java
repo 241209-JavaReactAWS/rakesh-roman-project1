@@ -3,7 +3,6 @@ package com.revature.project1.service;
 import com.revature.project1.Exceptions.ContentNotFoundException;
 import com.revature.project1.dao.OgCharDAO;
 import com.revature.project1.model.OgChar;
-import com.revature.project1.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +27,7 @@ public class OgCharService
     //Read Characters
     //Todo: Make an if-else control that allows only Admins to see private characters
     //Todo: Make an if-else control that hides mature content if the user's matureContentAllowed field is false
-    public List<OgChar> getAllCharacters(User user)
+    public List<OgChar> getAllCharacters()
     {
         return ogCharDAO.findAll();
     }
@@ -44,6 +43,7 @@ public class OgCharService
         //Set descriptive fields
         ogChar.setCharacterName(updatedCharacter.getCharacterName());
         ogChar.setCharacterAge(updatedCharacter.getCharacterAge());
+        ogChar.setCharacterSetting(updatedCharacter.getCharacterSetting());
         ogChar.setDescription(updatedCharacter.getDescription());
         //Set privacy fields
         ogChar.setMatureContent(updatedCharacter.isMatureContent());
@@ -53,7 +53,7 @@ public class OgCharService
         return ogCharDAO.save(ogChar);
     }
 
-    //Delete a Character
+    //Delete a Character.
     //Todo: Make it so that only the character's creator can delete a character
     public void deleteCharacter(int characterId){
         ogCharDAO.deleteById(characterId);
