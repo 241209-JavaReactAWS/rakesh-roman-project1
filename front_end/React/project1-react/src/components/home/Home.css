@@ -1,0 +1,28 @@
+body {
+    background-color: burlywood;
+    font-size: 20px;
+}
+
+.center {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;    
+  margin-left: auto;
+  margin-top: 10%;
+}
+
+.prof {
+    display: inline-block;
+}
+
+.center_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    text-align: center;
+    color: black;
+}

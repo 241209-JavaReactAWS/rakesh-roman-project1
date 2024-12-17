@@ -1,5 +1,7 @@
 Character Customizer 
 
+Working on backend? PUT HANDLER AT THE END OF EVERYTHING AND EVERYTHING'S GOING TO BE OK (maybe)
+
 Back End 
 - User 
     - Can add characters 
