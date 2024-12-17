@@ -1,0 +1,24 @@
+.logInBar {
+    background-color: darkslategrey; 
+    color: white; 
+    padding: 1%; 
+    position: fixed; 
+    right: 0; 
+    left: 0; 
+    top: 0; 
+    width: 100%;
+    margin-top: 0%;
+}
+
+.loggingIn {
+    padding-left: 20px;
+    color: black;
+}
+
+input {
+    background-color: white;
+}
+
+hr {
+    border-color: black;
+}
