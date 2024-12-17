@@ -52,7 +52,7 @@ public class OgCharService
         return ogCharDAO.save(ogChar);
     }
 
-    //Delete a Character
+    //Delete a Character.
     //Todo: Make it so that only the character's creator can delete a character
     public void deleteCharacter(int characterId){
         ogCharDAO.deleteById(characterId);
