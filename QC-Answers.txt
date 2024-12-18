@@ -1,0 +1,213 @@
+HTML/CSS
+What is HTML? 
+	HyperText Markup Language, forms the foundational structure of a webpage
+
+What is the structure of an HTML document? List some tags. What is <head> used for? <body>?
+	The top of an HTML document is the DOCTYPE, shortly followed by the language declaration
+	(contained in the <html> tag). The <head> tag contains the page title, as well as <link>
+	tags to other files such as stylesheets. The <body> is what is directly rendered to the screen,
+	containing all text, lists, images, and other content, as well as the <script> tag for any
+	relevant JS/TS script files
+
+What is a doctype?
+	The doctype tells the browser what type of file to expect. When we specify <!DOCTYPE html>,
+	thew browser knows to treat the rest of the file as HTML code.
+
+What is the tag for an ordered list? Unordered list?
+	<ol> is the tag for an ordered list, <ul> is the tag for an unordered list. <li> denotes any
+	list element, regardless of whether it is ordered or unordered
+
+What are some HTML5 tags? Why were HTML5 tags introduced?
+	<div> creates "code blocks" to improve readability and can accept class and id specifiers
+	for easier styling
+	<hr> creates a horizontal line on the page to create a visual separation between rendered
+	content
+	<br> creates a whitespace separation between rendered content
+	<h!> creates "headers" which are quick-styled text, automatically bolded and sized up.
+	<h1> is the largest header, <h6> is the smallest
+
+	Tags were introduced to make HTML code more readable for both machines and developers
+
+Do all tags come in a pair? What are the other things inside tags called? list some.
+	Not all tags com in pairs. <img/> for example, is a self-closing tag, meaning it has no
+	paired open or close tag. The "other things" inside tags are called attributes. These include
+	style, href, and src, depending on the tag itself. For example, <img/> contains a src attribute
+	that accepts a string containing the path to an image to be rendered
+
+What is the syntax for a comment in HTML?
+	<!-- This is a comment. -->
+
+Give me the HTML markup for a table.
+	<table>
+		<tr>
+			<th>Column1 Header</th>
+			<th>Column2 Header</th>
+			<th>Column3 Header</th>
+		</tr>
+		<tr>
+			<td>Row 1 Data 1</td>
+			<td>Row 1 Data 2</td>
+			<td>Row 1 Data 3</td>
+		</tr>
+		<tr>
+			<td>Row 2 Data 1</td>
+			<td>Row 2 Data 2</td>
+			<td>Row 2 Data 3</td>
+		</tr>
+	</table>
+
+What are some tags you would use in a form?
+	<label></label> labels an input field, <input/> accepts user text, and <button></button> creates
+	a clickable button that performs an action
+
+What is CSS? what are the different ways of styling an HTML file? Which is best? why?
+	CSS stands for Cascading Style-Sheet, and it is a language? entirely for styling HTML. There
+	are three ways to use CSS:
+		1. Inline: Best for styling a single element that should not share its style with
+			   other elements
+		2. Internal: Best for making page-wide styling changes. Declared in the <style></style>
+			     tag of the page <head></head>
+		3. External: Best for making general changes to multiple pages at once. Contained in an
+			     external .css file that is provided to the HTML page through a <link></link>
+			     tag in the <head></head>
+
+Describe the CSS box model.
+	The "box model" describes the box that CSS draws around every HTML element. The layers are,
+	from inside to out: content, padding, border, margin; all four of these fields are manipulable
+	through CSS, in addition to the width and height of the box
+
+Which way has highest priority when styles cascade: inline, internal, and external.
+	The priority goes, from lowest to highest: external, internal, inline
+
+Syntax for styling an element? What is a class and how to style them? What is an id? how to style?
+difference?
+	.thisIsClassStyling{
+		//CSS code to style the thisIsClassStyling class
+	}
+	#thisIsIdentifierStyling{
+		//CSS code to style elements with the thisIsIdentifierStyling id
+		//Best practice is to not reuse an id, keep them unique. Use a
+		//class if you would ever use multiple ids
+	}
+	h1{
+		//CSS code to style ALL h1 elements
+	}
+
+What if I want to select child elements, What syntax is that?
+	div>p{
+		//This styles every and only <p> tags that are the direct child of a <div>
+	}
+
+Can I select multiple elements at once? How?
+	You can can always style multiple elements by using a class, but
+	div, p{
+		//this will style all div and all p elements at once
+	}
+
+What is a psuedo-class? What is syntax for selecting that?
+	A pseudo class allows us to style a special state of an element. For example:
+	a:hover{
+		//allows us to make a link have a different style when a mouse hovers over it
+	}
+
+What is Bootstrap?
+	A free front-end framework that makes front-end development faster and easier by including
+	a number of HTML and CSS templates for various common browser elements
+
+JavaScript
+What is JavaScript? What do we use it for?
+	JavaScript is a high-level interpreted language mainly used for programming within an 
+	HTML front-end
+
+Can we run JavaScript in a web browser, on a server, or both?
+	Both
+
+What are the benefits of JS over your core language? Drawbacks?
+	JS easily integrates with HTML, supports OOP, Functional, and Procedural programming, and it
+	automatically handles garbage
+
+What programming paradigm(s) does JS support?
+
+What are the data types in JS?
+	string, number, bigInt, boolean, undefined, null, symbol, object
+	What is the type of NaN? What is the isNaN function? 
+		he type of NaN is Number, and .isNaN(x) is a boolean function that checks if x is NaN
+	What is the data type of a function?
+		Function Object
+	What about an array?
+		Array Object
+	What is the difference between undefined and null?
+		A null value is the explicit absence of a value. The undefined type is the type
+		of a variable that has been declared, but that has not been instantiated
+
+What are JS objects? what is the syntax?
+Use the object literal syntax to create an object with some properties
+	let objectName = {
+		property1: string,
+		numProp: number,
+		boolProp: boolean
+		objProp: otherObject
+	}
+
+What are arrays in JS? can you change their size?
+	An ordered/indexable data structure that can grow/shrink iin size and contain data of ANY TYPE
+
+List some array methods and explain how they work.
+	.toString() - converts the whole array to a string
+	.length - returns the number of elements in the array
+	.sort() - sorts the array 
+
+What is JSON? Is it different from JS objects?
+	JSON stands for JavaScript Object Notation. It is structurally similar to a JS Object, with
+	the only syntactic difference being that the properties/keys must be enclosed with "". A
+	JSON string must be parsed before use, while a JS Object can be used immediately
+
+What are some ways you can use functions in JS?
+	Functions can be called to repeat a set of instructions multiple times
+
+What are the different scopes of variables in JS?
+	Block Scope - can only be seen within the block
+	Function Scope - can only be seen within the function
+	Global Scope - everything can see and use it
+
+What are the different ways to declare global variables?
+
+Is it a best practice to use global variables? Why or why not?
+
+If you declare a variable var inside a for loop is that block scoped or function scoped?
+
+If you declare a variable let inside a for loop is that block scoped or function scoped?
+
+What are callback functions? What about self-invoking functions?
+
+What is a truthy or falsy value? List the falsy values.
+
+What is the difference between == and ===? Which one allows for type coercion?
+
+What is the difference between for of and for in?
+
+What is the difference between a do-while and a while loop?
+
+What is the difference between console.log(++x) and console.log(x++)?
+
+Intermediate
+What is function and variable hoisting?
+
+What is closure and when should you use it?
+
+What does the "this" keyword refer to?
+
+Explain the concept of lexical scope
+
+How would you rewrite this using an anonymous function? Arrow function?
+
+What is the difference between setInterval() and setTimeout()?
+	How would you stop a setInterval() once it has been set?
+	Advanced: How do they work with regards to the callback queue?
+
+How would you handle an error in JS?
+
+What attributes does an Error object have?
+
+What is an Immediately Invoked Function Expression?
+	How would you write one?
