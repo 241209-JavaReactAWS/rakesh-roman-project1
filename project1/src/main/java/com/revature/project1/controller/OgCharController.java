@@ -14,6 +14,9 @@ import java.util.List;
 @RequestMapping("characters") //Set all requests to have parent mapping http://localhost:8080/characters
 public class OgCharController
 {
+
+    // TODO: implement Admin functionality
+
     private final OgCharService ogCharService;
 
     @Autowired
@@ -21,16 +24,16 @@ public class OgCharController
         this.ogCharService = ogCharService;
     }
 
-    //todo: new character will receive its Creator field from the request, which should include {userId} as a path param
+    // TODO: new character will receive its Creator field from the request, which should include {userId} as a path param
     @PostMapping
     public ResponseEntity<OgChar> createNewCharacterHandler(@RequestBody OgChar newChar){
         OgChar newOgChar = ogCharService.createNewCharacter(newChar);
         return new ResponseEntity<>(newOgChar, HttpStatus.CREATED);
     }
 
-    //todo: all user get methods will receive the {accountType} enum and {matureContentVisible} fields from the searching user to filter the search
+    // TODO: all user get methods will receive the {accountType} enum and {matureContentVisible} fields from the searching user to filter the search
     @GetMapping
-    public List<OgChar> getAllCharactersHandler(){
+    public List<OgChar> getAllCharactersHandler() {
         return ogCharService.getAllCharacters();
     }
 
