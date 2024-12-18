@@ -1,6 +1,7 @@
 import "./Home.css";
 
 function Home() {
+  // TODO: Make it look nice
   return (
     <>
       <div className="center">

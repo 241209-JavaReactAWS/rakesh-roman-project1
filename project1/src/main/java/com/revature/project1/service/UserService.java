@@ -30,6 +30,9 @@ public class UserService
         return userDAO.findAll();
     }
 
+    // Find User by Username
+    public User getUserByUsername(String username) { return userDAO.getUserByUsername(username); }
+
     //Update a user's Username
     public User updateUsername(User updatedUser){
         Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());

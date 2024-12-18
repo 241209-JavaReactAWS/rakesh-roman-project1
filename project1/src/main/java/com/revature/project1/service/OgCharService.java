@@ -56,6 +56,7 @@ public class OgCharService
     //Delete a Character.
     //Todo: Make it so that only the character's creator can delete a character
     public void deleteCharacter(int characterId){
+
         ogCharDAO.deleteById(characterId);
     }
 
