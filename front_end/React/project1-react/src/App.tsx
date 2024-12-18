@@ -1,6 +1,4 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import "./App.css";
 import Nav from "./components/nav/Nav";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -10,6 +8,17 @@ import Login from "./components/login/Login";
 import Create from "./components/creator/Create";
 import Search from "./components/search/Search";
 import Profile from "./components/profile/Profile";
+import { createContext } from "react";
+
+//This context will store the username and role of someone who is logged in
+export interface AuthContextType{
+  username: string,
+  setUsername: (username: string) => void,
+  role: "unauthenticated" | "USER" | "ADMIN",
+  setRole: (role: "unauthenticated" | "USER" | "ADMIN") => void
+}
+
+export const authContext = createContext<AuthContextType | null>(null);
 
 function App() {
 
