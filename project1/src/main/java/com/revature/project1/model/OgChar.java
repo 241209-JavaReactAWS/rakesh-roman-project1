@@ -22,6 +22,8 @@ public class OgChar {
 
     private int characterAge;
 
+    private String characterSetting;
+
     private String description;
 
     //Holds the userId of the user who created the character
@@ -41,6 +43,18 @@ public class OgChar {
     public OgChar(String characterName, int characterAge, String description, int creator, boolean isPublic, boolean matureContent) {
         this.characterName = characterName;
         this.characterAge = characterAge;
+        this.description = description;
+        this.creator = creator;
+        this.isPublic = isPublic;
+        this.matureContent = matureContent;
+    }
+
+    //All Args constructor
+    public OgChar(int characterId, String characterName, int characterAge, String characterSetting, String description, int creator, boolean isPublic, boolean matureContent) {
+        this.characterId = characterId;
+        this.characterName = characterName;
+        this.characterAge = characterAge;
+        this.characterSetting = characterSetting;
         this.description = description;
         this.creator = creator;
         this.isPublic = isPublic;
@@ -102,5 +116,13 @@ public class OgChar {
 
     public void setMatureContent(boolean matureContent) {
         this.matureContent = matureContent;
+    }
+
+    public String getCharacterSetting() {
+        return characterSetting;
+    }
+
+    public void setCharacterSetting(String characterSetting) {
+        this.characterSetting = characterSetting;
     }
 }
