@@ -11,8 +11,9 @@ function Search() {
         <br />
         <div className="infor">
           <div className="checkboxes">
+            {/* TODO: Make checkboxes next to each other and with some spacing between them*/}
             <div>
-              <label style={{color: "red"}}>Search for Character</label>
+              <label>Search for Character</label>
               <input id="characterSearchInput" type="checkbox" />
             </div>
             <div>
