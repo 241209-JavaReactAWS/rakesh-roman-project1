@@ -12,6 +12,8 @@ import { createContext, useState } from "react";
 
 //This context will store the username and role of someone who is logged in
 export interface AuthContextType{
+  userId: number,
+  setUserId: (userId: number) => void,
   username: string,
   setUsername: (username: string) => void,
   role: "unauthenticated" | "USER" | "ADMIN",
@@ -21,14 +23,17 @@ export interface AuthContextType{
 export const authContext = createContext<AuthContextType | null>(null);
 
 function App() {
+  const [userId, setUserId] = useState<number>(0)
   const [username, setUsername] = useState<string>('')
-  const [role, setRole] = useState<"unauthenticated" | "USER" | "ADMIN">("USER")
+  const [role, setRole] = useState<"unauthenticated" | "USER" | "ADMIN">("unauthenticated")
 
   return (
     <>
     <authContext.Provider value = 
     {
       {
+        userId,
+        setUserId,
         username,
         setUsername,
         role,

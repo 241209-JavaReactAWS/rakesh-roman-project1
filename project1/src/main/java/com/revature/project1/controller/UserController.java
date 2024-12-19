@@ -4,9 +4,7 @@ import com.revature.project1.model.OgChar;
 import com.revature.project1.model.User;
 import com.revature.project1.service.OgCharService;
 import com.revature.project1.service.UserService;
-
 import jakarta.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +39,7 @@ public class UserController {
         User potentialUser = userService.createNewUser(newUser);
         session.setAttribute("username", potentialUser.getUsername());
         session.setAttribute("userId", potentialUser.getUserId());
-        session.setAttribute("role", potentialUser.getAccType());
+        session.setAttribute("role", potentialUser.getAccType().name());
         return new ResponseEntity<>(potentialUser, HttpStatus.CREATED);
     }
 
@@ -55,6 +53,7 @@ public class UserController {
         //If the user is null, it will short-circuit and avoid looking for a string that doesn't exist
         if (retrievedUser != null && password.equals(retrievedUser.getPassword())) {
             session.setAttribute("username", retrievedUser.getUsername());
+            session.setAttribute("userId", retrievedUser.getUserId());
             session.setAttribute("role", retrievedUser.getAccType());
             return retrievedUser;
         }

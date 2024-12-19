@@ -22,6 +22,7 @@ public class User
     private boolean isBanned;
 
     //This field denotes the account type, allowing special privileges for ADMIN accounts
+    //@Enumerated(EnumType.STRING)
     private AccountType accType;
     //Note: This field is represented within the database as a TinyInt
     //ADMIN = 0
@@ -31,7 +32,6 @@ public class User
         ADMIN,
         USER;
     }
-
 
     //Constructors
     //No-args constructor

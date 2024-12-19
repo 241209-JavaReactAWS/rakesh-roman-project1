@@ -4,8 +4,6 @@ import com.revature.project1.dao.OgCharDAO;
 import com.revature.project1.dao.UserDAO;
 import com.revature.project1.model.OgChar;
 import com.revature.project1.model.User;
-import com.revature.project1.model.User.AccountType;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -84,7 +82,7 @@ public class UserService
         // }
         if (thisUser.isPresent()) {
             User user = thisUser.get();
-            if (user.getAccType() == AccountType.ADMIN) {
+            if (user.getAccType() == User.AccountType.ADMIN) {
                 user.setBanned(updatedUser.isBanned());
                 return userDAO.save(thisUser.get());
             }
@@ -99,7 +97,7 @@ public class UserService
         Optional<User> retrievedUser = userDAO.findById(userId);
         if (retrievedUser.isPresent()) {
             User user = retrievedUser.get();
-            if (user.getAccType() == AccountType.ADMIN || user.getUserId() == userId) {
+            if (user.getAccType() == User.AccountType.ADMIN || user.getUserId() == userId) {
                 userDAO.deleteById(userId);
             }
         }
