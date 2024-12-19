@@ -33,7 +33,7 @@ public class OgCharController
     }
 
     // TODO: new character will receive its Creator field from the request, which should include {userId} as a path param
-    @PostMapping
+    @PostMapping("create")
     public ResponseEntity<OgChar> createNewCharacterHandler(@RequestBody OgChar newChar){
         OgChar newOgChar = ogCharService.createNewCharacter(newChar);
         return new ResponseEntity<>(newOgChar, HttpStatus.CREATED);
