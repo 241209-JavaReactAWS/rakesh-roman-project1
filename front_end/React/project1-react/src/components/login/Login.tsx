@@ -23,7 +23,6 @@ function Login() {
       alert("Please enter a password");
       return;
     }
-    //In case of terrible error, try adding this first: , {withCredentials:true}
     axios.post("http://localhost:8080/users/register", 
               {username, password})
               .then((res) => {console.log(res.data)}) 
@@ -40,7 +39,6 @@ function Login() {
       alert("Please enter a password");
       return;
     }
-    //In case of terrible error, try adding this first: , {withCredentials:true}
     axios.post("http://localhost:8080/users/login",
               {username, password}, {withCredentials:true})
               .then((res) => {
