@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("characters") //Set all requests to have parent mapping http://localhost:8080/characters
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class OgCharController
 {
 

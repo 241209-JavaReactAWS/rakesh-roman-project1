@@ -8,7 +8,7 @@ function Nav() {
         <Link to="/create">Create</Link>
         <Link to="/search">Search</Link>
         <Link to="/profile">Profile</Link>
-        <Link to="/">Log Out</Link>
+        <Link to="/">Log In</Link>
     </div>
   )
 }

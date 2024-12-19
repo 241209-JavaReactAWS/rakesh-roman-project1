@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
+@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
 public class UserController {
     private final UserService userService;
 
@@ -21,8 +22,7 @@ public class UserController {
 
     //CREATE
     //Register a new User
-    //TODO: Name and password validation
-    @PostMapping
+    @PostMapping("register")
     public ResponseEntity<User> createNewUserHandler(@RequestBody User newUser){
         // Check if username already exists for the username, and if password is longer than 4 letters
         String username = newUser.getUsername();
@@ -35,6 +35,18 @@ public class UserController {
         return new ResponseEntity<>(potentialUser, HttpStatus.CREATED);
     }
 
+    //Log in to existing user
+    @PostMapping("login")
+    public User loginHandler(String username, String password){
+        //Grab the proposed username and password from the input field
+        User retrievedUser = userService.getUserByUsername(username);
+        //If the user is null, it will short-circuit and avoid looking for a string that doesn't exist
+        if (retrievedUser != null && password.equals(retrievedUser.getPassword())) {
+            return retrievedUser;
+        }
+        return null;
+    }
+
     //READ
     @GetMapping
     public List<User> getAllUsersHandler(){
@@ -45,7 +57,6 @@ public class UserController {
     //todo: many of these methods could likely be slimmed once the connection between front- and backend is understood
 
     //Change Username handler
-    // TODO: handle null response case. should not happen in practice, but good to cover
     @PatchMapping("my-profile/change-username")
     public ResponseEntity<User> updateUsernameHandler(@RequestBody User thisUser){
         User updatedUser = userService.updateUsername(thisUser);
@@ -57,7 +68,6 @@ public class UserController {
     }
 
     //Change Password handler
-    // TODO: handle null response case. should not happen in practice, but good to cover
     @PatchMapping("my-profile/change-password")
     public ResponseEntity<User> updatePasswordHandler(@RequestBody User thisUser){
         User updatedUser = userService.updatePassword(thisUser);
@@ -69,7 +79,6 @@ public class UserController {
     }
 
     //Change Mature Content Visibility
-    // TODO: handle null response case. should not happen in practice, but good to cover
     @PatchMapping("my-profile/hide-mature-content")
     public ResponseEntity<User> setMatureContentVisibilityHandler(@RequestBody User thisUser){
         User updatedUser = userService.setMatureContentVisibility(thisUser);
@@ -81,7 +90,6 @@ public class UserController {
     }
     
     //Ban or unban a user
-    // TODO: handle null response case. should not happen in practice, but good to cover
     @PatchMapping("my-profile/moderate")
     public ResponseEntity<User> moderateUserHandler(@RequestBody User thisUser){
         User updatedUser = userService.moderateUser(thisUser);
