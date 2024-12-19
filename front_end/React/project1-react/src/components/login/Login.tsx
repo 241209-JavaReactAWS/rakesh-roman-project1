@@ -44,7 +44,7 @@ function Login() {
               .then((res) => {
                 console.log(res.data)
                 auth?.setUsername(res.data.username)
-                auth?.setRole(res.data.role)
+                auth?.setRole(res.data.accType)
               }) 
               .catch((err) => {console.log(err)}) //Print error
   }
