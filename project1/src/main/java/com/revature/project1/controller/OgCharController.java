@@ -2,6 +2,9 @@ package com.revature.project1.controller;
 
 import com.revature.project1.model.OgChar;
 import com.revature.project1.service.OgCharService;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +20,10 @@ public class OgCharController
 {
 
     // TODO: implement Admin functionality
+    /*
+     * What can Admin do?
+     * - See all characters (public and private) 
+     */
 
     private final OgCharService ogCharService;
 
@@ -42,12 +49,16 @@ public class OgCharController
     @PatchMapping
     public ResponseEntity<OgChar> updateCharacterHandler(@RequestBody OgChar updatedChar){
         OgChar updatedOgChar = ogCharService.updateCharacter(updatedChar);
+        if (updatedOgChar == null) {
+            return ResponseEntity.badRequest().build();
+        }
         return new ResponseEntity<>(updatedOgChar, HttpStatus.CREATED);
     }
 
     //DELETE
     @DeleteMapping("{characterId}")
-    public void deleteCharacterHandler(@PathVariable int characterId){
-        ogCharService.deleteCharacter(characterId);
+    public void deleteCharacterHandler(HttpSession session, @PathVariable int characterId){
+        String username = (String)session.getAttribute("username");
+        ogCharService.deleteCharacter(characterId, username);
     }
 }

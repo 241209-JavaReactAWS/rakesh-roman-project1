@@ -10,7 +10,7 @@ public class OgChar {
             - age (int)
             - description (varchar)
             - setting (varchar) (maybe hold off until later)
-            - creator (varchar) (foreign key)
+            - creator (int) (foreign key)
             - public (boolean)
             - flagFor18Plus (boolean)
     */
