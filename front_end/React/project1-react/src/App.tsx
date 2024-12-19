@@ -8,7 +8,7 @@ import Login from "./components/login/Login";
 import Create from "./components/creator/Create";
 import Search from "./components/search/Search";
 import Profile from "./components/profile/Profile";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 //This context will store the username and role of someone who is logged in
 export interface AuthContextType{
@@ -21,9 +21,20 @@ export interface AuthContextType{
 export const authContext = createContext<AuthContextType | null>(null);
 
 function App() {
+  const [username, setUsername] = useState<string>('')
+  const [role, setRole] = useState<"unauthenticated" | "USER" | "ADMIN">("USER")
 
   return (
     <>
+    <authContext.Provider value = 
+    {
+      {
+        username,
+        setUsername,
+        role,
+        setRole
+      }
+    }>
       <BrowserRouter>
         <Nav></Nav>
 
@@ -37,6 +48,7 @@ function App() {
       </BrowserRouter>
 
       <Footer></Footer>
+    </authContext.Provider>
     </>
   );
 }

@@ -38,6 +38,15 @@ public class User
     public User() {
     }
 
+    //2 arg account constructor (will delete later)
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.accType = AccountType.USER;
+        this.matureContentVisible = false;
+        this.isBanned = false;
+    }
+
     //Standard new account constructor
     public User(String username, String password, AccountType accType) {
         this.username = username;
