@@ -13,16 +13,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OgCharService
-{
+public class OgCharService {
     private final OgCharDAO ogCharDAO;
-    private final UserDAO userDAO;
+//    private final UserDAO userDAO;
 
+    //    public OgCharService(OgCharDAO ogCharDAO, UserDAO userDAO)
     @Autowired
-    public OgCharService(OgCharDAO ogCharDAO, UserDAO userDAO)
-    {
+    public OgCharService(OgCharDAO ogCharDAO, UserDAO userDAO) {
         this.ogCharDAO = ogCharDAO;
-        this.userDAO = userDAO;
+//        this.userDAO = userDAO;
     }
 
     //Create a New Character
@@ -33,13 +32,12 @@ public class OgCharService
     //Read Characters
     // TODO: Make an if-else control that allows only Admins to see private characters
     // TODO: Make an if-else control that hides mature content if the user's matureContentAllowed field is false
-    public List<OgChar> getAllCharacters()
-    {
+    public List<OgChar> getAllCharacters() {
         return ogCharDAO.findAll();
     }
 
     //Update a Character
-    public OgChar updateCharacter(OgChar updatedCharacter){
+    public OgChar updateCharacter(OgChar updatedCharacter) {
         OgChar ogChar = ogCharDAO.findById(updatedCharacter.getCharacterId())
                 .orElseThrow(() -> new ContentNotFoundException(updatedCharacter.getCharacterName() + " was not found."));
 
@@ -61,18 +59,25 @@ public class OgCharService
 
     //Delete a Character.
     // TODO: Make it so that only the character's creator can delete a character
-    public void deleteCharacter(int characterId, String username){
-        // Get the character and the user trying to delete it 
-        User retrievedUser = userDAO.getUserByUsername(username);
-        Optional<OgChar> retrievedCharacter = ogCharDAO.findById(characterId);
-        // Check if the character exists 
-        if (retrievedCharacter.isPresent()) {
-            OgChar character = retrievedCharacter.get();
-            // If the user's id is the same as the character's creator id, then delete it
-            if (retrievedUser.getUserId() == character.getCreator()) {
-                ogCharDAO.deleteById(characterId);
-            }
-        }
+    public void deleteCharacter(int characterId, String username) {
+//        // Get the character and the user trying to delete it
+//        User retrievedUser = userDAO.getUserByUsername(username);
+//        Optional<OgChar> retrievedCharacter = ogCharDAO.findById(characterId);
+//        // Check if the character exists
+//        if (retrievedCharacter.isPresent()) {
+//            OgChar character = retrievedCharacter.get();
+//            // If the user's id is the same as the character's creator id, then delete it
+//            if (retrievedUser.getUserId() == character.getCreator()) {
+//                ogCharDAO.deleteById(characterId);
+//            }
+//        }
     }
 
+//    public List<User> getSpecificCharactersPublic(String input) {
+//        return ogCharDAO.getSpecificCharactersPublic(input);
+//    }
+//
+//    public List<User> getSpecificCharactersAll(String input) {
+//        return ogCharDAO.getSpecificCharactersAll(input);
+//    }
 }

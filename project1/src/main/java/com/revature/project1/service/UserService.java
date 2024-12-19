@@ -1,6 +1,8 @@
 package com.revature.project1.service;
 
+import com.revature.project1.dao.OgCharDAO;
 import com.revature.project1.dao.UserDAO;
+import com.revature.project1.model.OgChar;
 import com.revature.project1.model.User;
 import com.revature.project1.model.User.AccountType;
 
@@ -14,11 +16,13 @@ import java.util.Optional;
 public class UserService
 {
     private final UserDAO userDAO;
+    private final OgCharDAO ogCharDAO;
 
     @Autowired
-    public UserService(UserDAO userDAO)
+    public UserService(UserDAO userDAO, OgCharDAO ogCharDAO)
     {
         this.userDAO = userDAO;
+        this.ogCharDAO = ogCharDAO;
     }
 
     //Create a new User
@@ -30,23 +34,6 @@ public class UserService
     // TODO: Make banned users only visible to Admins
     // String param username
     public List<User> getAllUsers(){
-//        // Check if the user is an admin. If so, show everyone
-//        User thisUser = userDAO.getUserByUsername(username);
-//        if (thisUser == null) {
-//            // User doesn't exist
-//            return null;
-//        }
-//        // Check if the user is an Admin
-//        else if (thisUser.getAccType() == AccountType.ADMIN) {
-//            // Show all users (banned and unbanned)
-//            return userDAO.findAll();
-//        }
-//        // The user is NOT an admin
-//        else {
-//            // Only show unbanned users
-//            return userDAO.getAllUnbannedUsers();
-//        }
-
         return userDAO.findAll();
     }
 
@@ -56,7 +43,7 @@ public class UserService
     //Update a user's Username
     public User updateUsername(User updatedUser){
         Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());
-        if(thisUser.isPresent()) {
+        if (thisUser.isPresent()) {
             thisUser.get().setUsername(updatedUser.getUsername());
             return userDAO.save(thisUser.get());
         }
@@ -66,7 +53,7 @@ public class UserService
     //Update a user's password
     public User updatePassword(User updatedUser){
         Optional<User> thisUser = userDAO.findById(updatedUser.getUserId());
-        if(thisUser.isPresent()) {
+        if (thisUser.isPresent()) {
             thisUser.get().setPassword(updatedUser.getPassword());
             return userDAO.save(thisUser.get());
         }
@@ -118,4 +105,25 @@ public class UserService
         }
     }
 
+    public List<User> getSpecificUsersUnbanned(String input) {
+        return userDAO.getSpecificUsersUnbanned(input);
+    }
+
+    public List<User> getSpecificUsersAll(String input) {
+        return userDAO.getSpecificUsersAll(input);
+    }
+
+    public List<OgChar> getSpecificCharacters(String input, String username) {
+        // Check if user is an Admin or not
+        User user = getUserByUsername(username);
+        if (user.getAccType() == User.AccountType.USER) {
+            // Can only see public characters
+            if (user.isMatureContentVisible()) {
+                return ogCharDAO.getSpecificCharactersPublic(input);
+            }
+            return ogCharDAO.getSpecificCharactersPublicNotMature(input);
+        }
+        // Can see all characters (public and private)
+        return ogCharDAO.getSpecificCharactersAll(input);
+    }
 }
