@@ -1,17 +1,17 @@
 import "./Create.css"
 import { SyntheticEvent, useState } from 'react';
-import { authContext } from "../../App";
+import axios from "axios";
 
 function Create() {
 
 //     const auth = useContext(authContext)
 
     const [characterName, setCharacterName] = useState<string>('')
-    const [characterAge, setCharacterAge] = useState<string>('')
+    const [characterAge, setCharacterAge] = useState<number>(0)
     const [characterDescription, setCharacterDescription] = useState<string>('')
     const [characterSetting, setCharacterSetting] = useState<string>('')
-    const [characterPrivate, setCharacterPrivate] = useState<string>('')
-    const [characterMatureOrNot, setCharacterMatureOrNot] = useState<string>('')
+    const [characterPrivate, setCharacterPrivate] = useState<boolean>(false)
+    const [characterMatureOrNot, setCharacterMatureOrNot] = useState<boolean>(false)
 
     let checkChangePrivate = () => {
         setCharacterPrivate(!characterPrivate)
@@ -46,18 +46,22 @@ function Create() {
               return
           }
 
-//         // Get userId for the command to work
-//         let uId = auth?.userId
-//         axios.post("http://localhost:8080/characters/create/${uId}",
-//             {
-//                 // Create Character Object here
-//             }
-//         ).then((res => {
-//             console.log(res.data)
-//         }).catch((err) => {
-//             console.log(err)
-//             // Potential error messages
-//         })
+        // axios.post("http://localhost:8080/characters/create",
+        //     {
+        //         characterName,
+        //         characterAge, 
+        //         characterSetting, 
+        //         characterDescription, 
+        //         characterPrivate, 
+        //         characterMatureOrNot
+        //     },
+        //     {withCredentials: true}
+        // ).then((res) => {
+        //     console.log(res.data)
+        //     console.log("Character created")
+        // }).catch((err) => {
+        //     console.log(err)
+        // })
 
     }
 
@@ -84,7 +88,7 @@ function Create() {
                 id="characterAge-input"
                 type="number"
                 value={characterAge}
-                onChange={ (e:SyntheticEvent) => { setCharacterAge((e.target as HTMLInputElement).value) } }
+                onChange={ (e:SyntheticEvent) => { setCharacterAge((e.target as HTMLInputElement).value as unknown as number) } }
             />
         </label>
         <br /> <br />
@@ -93,7 +97,7 @@ function Create() {
             <br /> <br />
             <textarea
                 id="characterDescription-input"
-                type="text"
+                // type="text"
                 value={characterDescription}
                 rows={20}
                 cols={70}

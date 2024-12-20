@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("users")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"}, allowCredentials = "true")
 public class UserController {
     private final UserService userService;
 
@@ -60,6 +60,13 @@ public class UserController {
         return null;
     }
 
+    // TODO: Get the users whose has that specific user id
+    @GetMapping("search/userId/{inputId}")
+    public User getSpecificUsers(@PathVariable("inputId") int inputId, HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        return userService.getUserById(inputId, username);
+    }
+
     // READ
     @GetMapping
     public List<User> getAllUsersHandler() {
@@ -75,13 +82,6 @@ public class UserController {
             return userService.getSpecificUsersUnbanned(input);
         }
         return userService.getSpecificUsersAll(input);
-    }
-
-    // TODO: Get the users whose has that specific user id
-    @GetMapping("search/userId/{inputId}")
-    public User getSpecificUsers(@PathVariable("inputId") int inputId, HttpSession session) {
-        String username = (String) session.getAttribute("username");
-        return userService.getUserById(inputId, username);
     }
 
     // TODO: Get the characters whose name contains a specific string

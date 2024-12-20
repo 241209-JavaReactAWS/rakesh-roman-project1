@@ -15,15 +15,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("characters") //Set all requests to have parent mapping http://localhost:8080/characters
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"}, allowCredentials = "true")
 public class OgCharController
 {
 
     // TODO: implement Admin functionality
-    /*
-     * What can Admin do?
-     * - See all characters (public and private) 
-     */
 
     private final OgCharService ogCharService;
 
@@ -33,9 +29,10 @@ public class OgCharController
     }
 
     // TODO: new character will receive its Creator field from the request, which should include {userId} as a path param
-    @PostMapping("create/{userId}")
-    public ResponseEntity<OgChar> createNewCharacterHandler(@RequestBody OgChar newChar, @PathVariable("userId") int userId){
-        OgChar newOgChar = ogCharService.createNewCharacter(newChar, userId);
+    @PostMapping("create")
+    public ResponseEntity<OgChar> createNewCharacterHandler(@RequestBody OgChar newChar, HttpSession session){
+        int uId = (Integer)session.getAttribute("userId");
+        OgChar newOgChar = ogCharService.createNewCharacter(newChar, uId);
         return new ResponseEntity<>(newOgChar, HttpStatus.CREATED);
     }
 
