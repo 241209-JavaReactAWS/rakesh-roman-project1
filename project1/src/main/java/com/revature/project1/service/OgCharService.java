@@ -25,13 +25,12 @@ public class OgCharService {
     }
 
     //Create a New Character
-    public OgChar createNewCharacter(OgChar newOgChar) {
+    public OgChar createNewCharacter(OgChar newOgChar, int userId) {
+        newOgChar.setCreator(userId);
         return ogCharDAO.save(newOgChar);
     }
 
     //Read Characters
-    // TODO: Make an if-else control that allows only Admins to see private characters
-    // TODO: Make an if-else control that hides mature content if the user's matureContentAllowed field is false
     public List<OgChar> getAllCharacters() {
         return ogCharDAO.findAll();
     }

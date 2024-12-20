@@ -22,4 +22,8 @@ public interface UserDAO extends JpaRepository<User, Integer>
 
     @Query("SELECT u FROM User u WHERE u.username LIKE %:inputString%")
     List<User> getSpecificUsersAll(@Param("inputString") String inputString);
+
+    @Query("SELECT u FROM User u WHERE u.userId = :userId AND u.isBanned = false")
+    User getUserUnbanned(@Param("userId") int userId);
+
 }

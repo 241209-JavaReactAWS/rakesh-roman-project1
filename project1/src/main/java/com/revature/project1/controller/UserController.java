@@ -77,6 +77,13 @@ public class UserController {
         return userService.getSpecificUsersAll(input);
     }
 
+    // TODO: Get the users whose has that specific user id
+    @GetMapping("search/userId/{inputId}")
+    public User getSpecificUsers(@PathVariable("inputId") int inputId, HttpSession session) {
+        String username = (String) session.getAttribute("username");
+        return userService.getUserById(inputId, username);
+    }
+
     // TODO: Get the characters whose name contains a specific string
     @GetMapping("search/character/{inputString}")
     public List<OgChar> getSpecificChars(@PathVariable("inputString") String input, HttpSession session) {

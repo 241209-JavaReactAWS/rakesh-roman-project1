@@ -29,7 +29,6 @@ public class UserService
     }
 
     //Read Users
-    // TODO: Make banned users only visible to Admins
     // String param username
     public List<User> getAllUsers(){
         return userDAO.findAll();
@@ -123,5 +122,21 @@ public class UserService
         }
         // Can see all characters (public and private)
         return ogCharDAO.getSpecificCharactersAll(input);
+    }
+
+    public User getUserById(int id, String username) {
+        User user = getUserByUsername(username);
+        if (user.getAccType() == User.AccountType.USER) {
+            // Can only see unbanned users
+//            return ogCharDAO.getSpecificCharactersPublicNotMature(input);
+            return userDAO.getUserUnbanned(id);
+        }
+        // Can see all users (banned and unbanned)
+//        return ogCharDAO.getSpecificCharactersAll(input);
+        Optional<User> potentialUser = userDAO.findById(id);
+        if (potentialUser.isPresent()) {
+            return potentialUser.get();
+        }
+        return null;
     }
 }

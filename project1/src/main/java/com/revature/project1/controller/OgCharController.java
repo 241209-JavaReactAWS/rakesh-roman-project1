@@ -33,13 +33,13 @@ public class OgCharController
     }
 
     // TODO: new character will receive its Creator field from the request, which should include {userId} as a path param
-    @PostMapping("create")
-    public ResponseEntity<OgChar> createNewCharacterHandler(@RequestBody OgChar newChar){
-        OgChar newOgChar = ogCharService.createNewCharacter(newChar);
+    @PostMapping("create/{userId}")
+    public ResponseEntity<OgChar> createNewCharacterHandler(@RequestBody OgChar newChar, @PathVariable("userId") int userId){
+        OgChar newOgChar = ogCharService.createNewCharacter(newChar, userId);
         return new ResponseEntity<>(newOgChar, HttpStatus.CREATED);
     }
 
-    // TODO: all user get methods will receive the {accountType} enum and {matureContentVisible} fields from the searching user to filter the search
+    // : all user get methods will receive the {accountType} enum and {matureContentVisible} fields from the searching user to filter the search
     @GetMapping
     public List<OgChar> getAllCharactersHandler() {
         return ogCharService.getAllCharacters();
