@@ -126,13 +126,12 @@ public class UserService
 
     public User getUserById(int id, String username) {
         User user = getUserByUsername(username);
+        // Cannot see the user if the user is banned
         if (user.getAccType() == User.AccountType.USER) {
-            // Can only see unbanned users
-//            return ogCharDAO.getSpecificCharactersPublicNotMature(input);
+            // If the searched user is banned, nothing will show up
             return userDAO.getUserUnbanned(id);
         }
-        // Can see all users (banned and unbanned)
-//        return ogCharDAO.getSpecificCharactersAll(input);
+        // Can see the user (even if banned)
         Optional<User> potentialUser = userDAO.findById(id);
         if (potentialUser.isPresent()) {
             return potentialUser.get();
