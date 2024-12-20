@@ -1,7 +1,7 @@
 export interface User{
     userId: number,
     pfp: string,
-    uesrname: string,
+    username: string,
     password: string,
     matureContentVisible: boolean,
     isBanned: boolean,
